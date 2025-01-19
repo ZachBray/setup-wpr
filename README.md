@@ -1,3 +1,5 @@
+[![Tests](https://github.com/chad-golden/setup-wpr/actions/workflows/test.yml/badge.svg)](https://github.com/chad-golden/setup-wpr/actions/workflows/test.yml)
+
 # Windows Performance Recorder Setup Action
 This action sets up Windows Performance Recorder (WPR) in your GitHub Actions workflow. It provides functionality to install WPR, start recording traces, and stop recording with configurable output.
 
