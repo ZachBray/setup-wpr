@@ -1,0 +1,11 @@
+name: 'Setup Windows Performance Trace'
+description: 'An action that simplifies recording Windows performance traces using Windows Performance Recorder'
+author: "chad-golden"
+branding:
+  icon: play-circle
+  color: gray-dark
+runs:
+  using: 'composite'
+  steps:
+    - shell: pwsh
+      run: ${{ github.action_path }}/scripts/setup.ps1

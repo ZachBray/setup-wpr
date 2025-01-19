@@ -1,0 +1,18 @@
+name: 'Start Windows Performance Trace Recording'
+description: 'An action that simplifies recording Windows performance traces using Windows Performance Recorder'
+author: "chad-golden"
+branding:
+  icon: play-circle
+  color: gray-dark
+inputs:
+  start-options:
+    type: string
+    description: 'Specify one or more profiles for the recording to be started, default is "-start GeneralProfile"'
+    default: -start GeneralProfile
+runs:
+  using: 'composite'
+  steps:
+    - shell: pwsh
+      env:
+        WPR_ARG_LIST: ${{ inputs.start-options }}
+      run: ${{ github.action_path }}/../scripts/start.ps1
