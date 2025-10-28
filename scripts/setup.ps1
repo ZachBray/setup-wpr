@@ -25,14 +25,14 @@ Write-ActionDebug "Working folder is '$workingFolder'"
 Push-Location $workingFolder
 
 Write-ActionDebug "Downloading WPT"
-$request = Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2196127" -OutFile "wpt.exe"
+$request = Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2289980" -OutFile "wpt.exe"
 Write-ActionDebug "Downloaded WPT: $request"
 
-$expectedSha256 = "FEA28F693139CDB55D2C993273B815147F804BB27BCB912F85ABAFC63FC6AAC8"
+$expectedSha256 = "7F61E29F2314BCDD7E0ABF67A8367D83A05AA4A7B9223F85C5FD2582A35CC6F4"
 $actualSha256 = (Get-FileHash -Path "wpt.exe" -Algorithm SHA256).Hash
 
 if ($actualSha256 -ne $expectedSha256) {
-  throw "Hash verification failed!"
+  throw "Hash verification failed! Actual: $actualSha256, Expected: $expectedSha256"
 }
 else {
   Write-Host "SHA256 verification of Windows Performance Toolkit installation package succeeded"
